@@ -69,8 +69,8 @@ class Course {
         }
 };
 
-Course readData(string line, string delimeter) {
-    
+Course readData(string line) {
+    const string delimeter = ",";
     // Finds the name of the course.
     string courseName = line.substr(0, line.find(delimeter));
     // Removes the course name to continue checking values.
@@ -101,5 +101,5 @@ void readFile(string fileName) {
 
 // Function that converts grade input to grade point value.
 int main() {
-    readData("Math,3,A+", ",");
+    readData("Math,3,A+");
 }
