@@ -9,6 +9,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
 using namespace std;
 
 class Course {
@@ -88,18 +89,30 @@ Course readData(string line) {
     // Debugging
     cout << newCourse.getCourseName() << " ";
     cout << newCourse.getCredits() << " ";
-    cout << newCourse.getGrade() << " ";
+    cout << newCourse.getGrade() << " " << endl;
 
     return newCourse;
 }
 
 //TODO: Write this function
 void readFile(string fileName) {
+    string line;
+    ifstream fileStream(fileName);
 
+    // First line is heading file.
+    getline (fileStream, line);
+
+    while(getline (fileStream, line)) {
+        cout << line << endl;
+    }
+
+    getline (fileStream, line);
+    cout << line << endl;
 }
 
 
 // Function that converts grade input to grade point value.
 int main() {
     readData("Math,3,A+");
+    readFile("TestFile.csv");
 }
