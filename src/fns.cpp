@@ -42,7 +42,6 @@ void readFile(string fileName) {
         }
         allCourses.push_back(readData(line));
     }
-    return;
 }
 
 void calculateGPA(vector<Course> courses) {
