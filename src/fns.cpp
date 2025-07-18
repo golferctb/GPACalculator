@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <cmath>
 #include "Course.cpp"
 using namespace std;
 
@@ -17,7 +18,7 @@ Course readData(string line) {
     // Finds the string value for credits
     string credits = line.substr(0, line.find(delimeter));
     line = line.substr(line.find(delimeter) + delimeter.size(), line.size());
-    string grade = line.substr(0, line.find(delimeter));;
+    string grade = line.substr(0, line.find(delimeter));
 
     Course newCourse;
     newCourse.setCourseName(courseName);
@@ -64,19 +65,59 @@ void calculateGPA(vector<Course> courses) {
     return;
 }
 
+void quadraticSolver() {
+    float a;
+    float b;
+    float c;
+    
+    cout << "Please enter a, b, c value. Press enter after each value " << endl;
+    cin >> a;
+    cin >> b;
+    cin >> c;
+    
+    float delta = (b * b) - 4*a*c;
+    
+    if(delta < 0) {
+        cerr << "There are no real solutions" << endl;
+        return;
+    }
+
+    float x1 = (-b+sqrt(delta))/(2*a);
+    float x2 = (-b-sqrt(delta))/(2*a);
+
+    cout << "Solutions: {" << x1 << "," << x2 << "}" << endl;
+}
+
 // Displays the console menu
 void displayMenu() {
     cout << "Welcome to the Calculator suite by Cale B.! Please type the number option and press enter!" << endl;
-    cout << "1. GPA Calculator" << endl << endl;
-    char choice;
-    cin >> choice;
+    bool cont = true;
+
+
+    while(cont) {
+        cout << "1. GPA Calculator" << endl;
+        cout << "2. Quadratic Solver" << endl;
+        cout << "Press q to quit.";
+        cout << endl; // Adds an extra space for choosing options.
+        char choice;
+        cin >> choice;
     
-    switch (choice) {
-        case '1':
-            calculateGPA(allCourses);
-            break;
-        default:
-            cout << "Please enter a valid option." << endl;
+        switch (choice) {
+            case '1':
+                calculateGPA(allCourses);
+                break;
+            case '2':
+                quadraticSolver();
+                break;
+            case 'q':
+                cont = false;
+                break;
+            default:
+                cout << "Please enter a valid option." << endl;
+        }
     }
+
+    cout << "Thank you for using the program. See you soon!" << endl;
+    
     return;
 }

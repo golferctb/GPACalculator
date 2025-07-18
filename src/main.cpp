@@ -10,6 +10,6 @@
 #include "fns.cpp"
 // Function that converts grade input to grade point value.
 int main() {
-    displayMenu();
+    displayMenu(); 
     return 0;
 }
