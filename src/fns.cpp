@@ -88,6 +88,11 @@ void quadraticSolver() {
     cout << "Solutions: {" << x1 << "," << x2 << "}" << endl;
 }
 
+// Calculates time inputs
+void calculateTime() {
+    
+}
+
 // Displays the console menu
 void displayMenu() {
     cout << "Welcome to the Calculator suite by Cale B.! Please type the number option and press enter!" << endl;
