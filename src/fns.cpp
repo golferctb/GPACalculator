@@ -97,6 +97,7 @@ void displayMenu() {
     while(cont) {
         cout << "1. GPA Calculator" << endl;
         cout << "2. Quadratic Solver" << endl;
+        cout << "3. Time Calculator" << endl;
         cout << "Press q to quit.";
         cout << endl; // Adds an extra space for choosing options.
         char choice;
@@ -108,6 +109,9 @@ void displayMenu() {
                 break;
             case '2':
                 quadraticSolver();
+                break;
+            case '3':
+                cout << "This function is still in progress, try another!" << endl;
                 break;
             case 'q':
                 cont = false;
